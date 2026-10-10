@@ -1,0 +1,17 @@
+# Build
+target/
+out/
+*.class
+
+# Banco local criado pela aplicacao
+*.db
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+nbproject/
+.DS_Store
