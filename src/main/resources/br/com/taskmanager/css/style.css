@@ -1,0 +1,296 @@
+/* ==========================================================
+   TaskManager - estilo das telas JavaFX
+   Paleta: fundo claro, destaque em azul-petroleo, alertas em coral.
+   ========================================================== */
+
+.root {
+    -tm-fundo: #f3f5f9;
+    -tm-superficie: #ffffff;
+    -tm-borda: #dde2ea;
+    -tm-texto: #1f2733;
+    -tm-texto-suave: #687385;
+    -tm-destaque: #0f6e8c;
+    -tm-destaque-escuro: #0b566d;
+    -tm-perigo: #c8463d;
+    -tm-perigo-escuro: #a3362f;
+
+    -fx-font-family: "Segoe UI", "Helvetica Neue", "Liberation Sans", sans-serif;
+    -fx-font-size: 13px;
+    -fx-text-fill: -tm-texto;
+    -fx-background-color: -tm-fundo;
+    -fx-accent: -tm-destaque;
+    -fx-focus-color: -tm-destaque;
+    -fx-faint-focus-color: transparent;
+}
+
+/* ---------- Cabecalho ---------- */
+.cabecalho {
+    -fx-padding: 22 24 16 24;
+}
+
+.titulo-app {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -tm-texto;
+}
+
+.subtitulo-app,
+.resumo {
+    -fx-text-fill: -tm-texto-suave;
+}
+
+.resumo {
+    -fx-font-size: 12.5px;
+}
+
+.progresso {
+    -fx-pref-height: 8px;
+}
+
+.progresso > .track {
+    -fx-background-color: -tm-borda;
+    -fx-background-radius: 4;
+    -fx-background-insets: 0;
+}
+
+.progresso > .bar {
+    -fx-background-color: -tm-destaque;
+    -fx-background-radius: 4;
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+}
+
+/* ---------- Campos ---------- */
+.text-field,
+.text-area,
+.combo-box {
+    -fx-background-color: -tm-borda, -tm-superficie;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 6, 5;
+}
+
+.text-field {
+    -fx-padding: 7 10 7 10;
+}
+
+.text-area .content {
+    -fx-background-color: -tm-superficie;
+    -fx-background-radius: 5;
+    -fx-padding: 6 8 6 8;
+}
+
+.text-field:focused,
+.text-area:focused,
+.combo-box:focused {
+    -fx-background-color: -tm-destaque, -tm-superficie;
+    -fx-background-insets: 0, 2;
+}
+
+/* Mantem o texto de ajuda visivel mesmo com o campo em foco */
+.text-input,
+.text-input:focused {
+    -fx-prompt-text-fill: #9aa3b0;
+}
+
+.campo-invalido,
+.campo-invalido:focused {
+    -fx-background-color: -tm-perigo, #fff6f5;
+    -fx-background-insets: 0, 2;
+}
+
+.check-box > .box {
+    -fx-background-color: #aab4c2, -tm-superficie;
+    -fx-background-insets: 0, 1.5;
+    -fx-background-radius: 4, 3;
+    -fx-padding: 3;
+}
+
+.check-box:hover > .box {
+    -fx-background-color: -tm-destaque, -tm-superficie;
+}
+
+.check-box:selected > .box {
+    -fx-background-color: -tm-destaque, -tm-destaque;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
+
+/* ---------- Tabela ---------- */
+.tabela-tarefas {
+    -fx-background-color: -tm-borda, -tm-superficie;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 8, 7;
+    -fx-padding: 1;
+}
+
+.tabela-tarefas .column-header-background {
+    -fx-background-color: #f8f9fc;
+    -fx-background-radius: 7 7 0 0;
+}
+
+.tabela-tarefas .column-header,
+.tabela-tarefas .filler {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent -tm-borda transparent;
+    -fx-size: 36px;
+}
+
+.tabela-tarefas .column-header .label {
+    -fx-text-fill: -tm-texto-suave;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-alignment: center-left;
+    -fx-padding: 0 0 0 6;
+}
+
+.tabela-tarefas .col-centro .label {
+    -fx-alignment: center;
+}
+
+.tabela-tarefas .table-row-cell {
+    -fx-background-color: -tm-superficie;
+    -fx-border-color: transparent transparent #eef1f5 transparent;
+    -fx-cell-size: 40px;
+}
+
+.tabela-tarefas .table-row-cell:hover {
+    -fx-background-color: #f4f8fb;
+}
+
+.tabela-tarefas .table-row-cell:selected {
+    -fx-background-color: #e3f1f6;
+}
+
+.tabela-tarefas .table-row-cell .table-cell {
+    -fx-text-fill: -tm-texto;
+    -fx-padding: 0 6 0 6;
+    -fx-border-color: transparent;
+    -fx-alignment: center-left;
+}
+
+.tabela-tarefas .table-row-cell .table-cell.col-centro {
+    -fx-alignment: center;
+}
+
+/* Linha de tarefa concluida: texto esmaecido e riscado */
+.tabela-tarefas .table-row-cell:concluida .table-cell .text {
+    -fx-fill: #9aa3b0;
+    -fx-strikethrough: true;
+}
+
+/* Etiquetas de prioridade */
+.tabela-tarefas .table-row-cell .table-cell.p1 { -fx-text-fill: #b4332b; -fx-font-weight: bold; }
+.tabela-tarefas .table-row-cell .table-cell.p2 { -fx-text-fill: #c46a14; -fx-font-weight: bold; }
+.tabela-tarefas .table-row-cell .table-cell.p3 { -fx-text-fill: #8a7a10; }
+.tabela-tarefas .table-row-cell .table-cell.p4 { -fx-text-fill: #2f7d4f; }
+.tabela-tarefas .table-row-cell .table-cell.p5 { -fx-text-fill: #687385; }
+.tabela-tarefas .table-row-cell .table-cell.sem-prioridade { -fx-text-fill: #b3bac5; }
+
+.tabela-tarefas .placeholder .label {
+    -fx-text-fill: -tm-texto-suave;
+    -fx-font-size: 14px;
+}
+
+/* ---------- Botoes ---------- */
+.button {
+    -fx-background-color: -tm-borda, -tm-superficie;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 6, 5;
+    -fx-padding: 8 16 8 16;
+    -fx-text-fill: -tm-texto;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #c9d0db, #f7f9fc;
+}
+
+.button:pressed {
+    -fx-background-color: #b8c0cc, #eef1f6;
+}
+
+.button:disabled {
+    -fx-opacity: 0.45;
+}
+
+.botao-primario {
+    -fx-background-color: -tm-destaque;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.botao-primario:hover {
+    -fx-background-color: -tm-destaque-escuro;
+}
+
+.botao-perigo {
+    -fx-background-color: -tm-perigo, -tm-superficie;
+    -fx-text-fill: -tm-perigo;
+}
+
+.botao-perigo:hover {
+    -fx-background-color: -tm-perigo;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+}
+
+/* ---------- Barra inferior ---------- */
+.barra-acoes {
+    -fx-padding: 16 24 20 24;
+}
+
+.mensagem-status {
+    -fx-text-fill: -tm-texto-suave;
+    -fx-font-style: italic;
+    -fx-padding: 0 8 0 0;
+}
+
+/* ---------- Formulario ---------- */
+.formulario {
+    -fx-padding: 24;
+    -fx-background-color: -tm-superficie;
+}
+
+.titulo-form {
+    -fx-font-size: 19px;
+    -fx-font-weight: bold;
+}
+
+.rotulo {
+    -fx-text-fill: -tm-texto-suave;
+    -fx-font-weight: bold;
+}
+
+.contador {
+    -fx-text-fill: #9aa3b0;
+    -fx-font-size: 11px;
+}
+
+.contador-excedido {
+    -fx-text-fill: -tm-perigo;
+}
+
+.mensagem-erro {
+    -fx-text-fill: -tm-perigo-escuro;
+    -fx-background-color: #fdeceb;
+    -fx-background-radius: 6;
+    -fx-padding: 8 12 8 12;
+    -fx-max-width: infinity;
+}
+
+/* ---------- Dialogos (confirmacao/erro) ---------- */
+.dialog-pane {
+    -fx-background-color: -tm-superficie;
+}
+
+.dialog-pane > .header-panel {
+    -fx-background-color: #f8f9fc;
+}
+
+.dialog-pane > .header-panel .label {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
